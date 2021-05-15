@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get_it_mixin/get_it_mixin.dart';
 import 'package:get_it_mixins_example1/get_it_mixns/drinks_notifier.dart';
 import 'package:get_it_mixins_example1/models/drink.dart';
-import 'package:get_it_mixins_example1/widgeta/deinks_widget.dart';
+import 'package:get_it_mixins_example1/widgeta/drinks_widget.dart';
 
 import '../constants.dart';
 
 class GetItMixinScreen extends StatelessWidget with GetItMixin {
+  // late List<Drink> drinks;
+  // late List<Drink> selectedDrinks;
+
   @override
   Widget build(BuildContext context) {
     final List<Drink> drinks = watchOnly((GetItDrinksNotifier x) => x.drinks);
@@ -56,7 +59,7 @@ class GetItMixinScreen extends StatelessWidget with GetItMixin {
                       ),
                       itemCount: selectedDrinks.length,
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
@@ -65,4 +68,18 @@ class GetItMixinScreen extends StatelessWidget with GetItMixin {
       ),
     );
   }
+
+  // Widget _buildSelectedArea() {
+  //   print("=====> _buildSelectedArea()");
+  //   return Expanded(
+  //     child: ListView.builder(
+  //       itemBuilder: (context, index) => ListTile(
+  //         title: Text(
+  //           selectedDrinks.toList()[index].name,
+  //         ),
+  //       ),
+  //       itemCount: selectedDrinks.length,
+  //     ),
+  //   );
+  // }
 }

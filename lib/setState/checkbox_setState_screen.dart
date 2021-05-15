@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it_mixins_example1/models/drink.dart';
-import 'package:get_it_mixins_example1/widgeta/deinks_widget.dart';
+import 'package:get_it_mixins_example1/widgeta/drinks_widget.dart';
 
 import '../constants.dart';
 
