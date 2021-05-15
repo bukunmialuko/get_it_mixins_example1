@@ -41,7 +41,7 @@ class GetItMixinScreen extends StatelessWidget with GetItMixin {
                           drink: drink,
                           onChanged: (value) {
                             get<GetItDrinksNotifier>()
-                                .selectDrink(drink, value);
+                                .selectDrink(drink, value!);
                           },
                         ),
                       )

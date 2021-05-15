@@ -5,7 +5,7 @@ import 'package:get_it_mixins_example1/widgeta/drinks_widget.dart';
 import '../constants.dart';
 
 class CheckBoxSetStateScreen extends StatefulWidget {
-  const CheckBoxSetStateScreen({Key key}) : super(key: key);
+  const CheckBoxSetStateScreen({Key? key}) : super(key: key);
 
   @override
   _CheckBoxSetStateScreenState createState() => _CheckBoxSetStateScreenState();
@@ -48,7 +48,7 @@ class _CheckBoxSetStateScreenState extends State<CheckBoxSetStateScreen> {
                           drink: drink,
                           onChanged: (value) {
                             setState(() {
-                              drink.selected = value;
+                              drink.selected = value!;
                             });
                           },
                         ),
