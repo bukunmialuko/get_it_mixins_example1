@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'get_it_mixns/get_it_mixns_screen.dart';
+import 'get_it_mixns/locator.dart';
 
 void main() {
+  setUp();
   runApp(MyApp());
 }
 

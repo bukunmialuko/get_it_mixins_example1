@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get_it_mixin/get_it_mixin.dart';
+import 'package:get_it_mixins_example1/get_it_mixns/drinks_notifier.dart';
+import 'package:get_it_mixins_example1/models/drink.dart';
 import 'package:get_it_mixins_example1/widgeta/deinks_widget.dart';
 
 import '../constants.dart';
 
-class GetItMixinScreen extends StatelessWidget {
+class GetItMixinScreen extends StatelessWidget with GetItMixin {
   @override
   Widget build(BuildContext context) {
-    final drinks = [];
-    final selectedDrinks = [];
+    final List<Drink> drinks = watchOnly((GetItDrinksNotifier x) => x.drinks);
+    final List<Drink> selectedDrinks =
+        watchOnly((GetItDrinksNotifier x) => x.selectedDrinks);
 
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +36,10 @@ class GetItMixinScreen extends StatelessWidget {
                       .map(
                         (drink) => DrinksWidget(
                           drink: drink,
-                          onChanged: (value) {},
+                          onChanged: (value) {
+                            get<GetItDrinksNotifier>()
+                                .selectDrink(drink, value);
+                          },
                         ),
                       )
                       .toList(),
